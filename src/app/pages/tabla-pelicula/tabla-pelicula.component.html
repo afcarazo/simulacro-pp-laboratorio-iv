@@ -1,0 +1,6 @@
+<div class="row"  style=" text-align:center; position: relative;">
+  <div class="col" style="display:inline-block" *ngFor="let pelicula of listadoPeliculas">
+    <img src="{{ pelicula.foto }}" width="150px" height="250px" style="margin: 10px;"><br>
+   <button class="btn btn-outline-light"(click)="enviar(pelicula)" style="margin-bottom: 20px;" type="button"> Detalle </button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+
+  <body style="padding-left: 5%;padding-right: 5%;">
+
+
+  <div class="container-peliculas">
+      
+  <h1 class="active">Peliculas</h1>
+        <app-tabla-pelicula  [listadoPeliculas]="listadoPeliculas" (seleccionarPelicula)="peliculaSeleccionada($event)"></app-tabla-pelicula>
+      </div>
+<div class="container" >
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3" style="display:inline-block;">
+          <h2>Borrar</h2>
+          <button class="btn btn-primary btn-lg" type="button">Borrar</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3" style="display:inline-block ;">
+          <h2>Detalle</h2>
+          <app-detalle-pelicula [peliculaElegida]="pelicula"></app-detalle-pelicula>
+          <button class="btn btn-primary btn-lg" type="button">Limpiar</button>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3"style="display:inline-block ;" >
+          <h2>Modificar</h2>
+          <button class="btn btn-primary btn-lg" type="button">Guardar cambios</button>
+        </div>
+      </div>
+      </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy;  Agustina Carazo - 2022
+    </footer> 
+
+    
+  </body>
