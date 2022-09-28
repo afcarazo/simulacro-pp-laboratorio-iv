@@ -1,0 +1,6 @@
+<div class="container" id="style-8">
+    <div class="row pais" *ngFor='let pais of this.paises' (click)="this.enviarPais(pais)">
+        <div clas="col">{{pais.name.common}}</div>
+        <div clas="col"> <img src="{{pais.flags.png}}" width="35px" height="35px"></div>
+    </div>
+</div>

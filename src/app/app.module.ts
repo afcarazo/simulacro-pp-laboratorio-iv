@@ -11,7 +11,10 @@ import { PeliculaListadoComponent } from './pages/pelicula-listado/pelicula-list
 import { TablaPeliculaComponent } from './pages/tabla-pelicula/tabla-pelicula.component';
 import { ActorAltaComponent } from './pages/actor-alta/actor-alta.component';
 import { DetallePeliculaComponent } from './pages/detalle-pelicula/detalle-pelicula.component';
-
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +25,17 @@ import { DetallePeliculaComponent } from './pages/detalle-pelicula/detalle-pelic
     PeliculaListadoComponent,
     TablaPeliculaComponent,
     ActorAltaComponent,
-    DetallePeliculaComponent
+    DetallePeliculaComponent,
+    TablaPaisesComponent,
+    NavBarComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

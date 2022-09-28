@@ -1,1 +1,22 @@
-<p>actor-listado works!</p>
+<table style="color:rgb(0, 162, 255);" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Apellido</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Pais</th>
+        <th scope="col">Bandera</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actor of this.listadoActoresRecibido">
+        <td>{{actor.apellido}}</td>
+        <td>{{actor.nombre}}</td>
+        <td>{{actor.sexo}}</td>
+        <td>{{actor.edad}}</td>
+        <td>{{actor.pais}}</td>
+        <td><img src={{actor.paisFoto}} width="35px" height="35px"></td>
+      </tr>
+    </tbody>
+  </table>

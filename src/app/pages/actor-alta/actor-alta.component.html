@@ -1,1 +1,72 @@
-<p>actor-alta works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <form [formGroup]="forma" (ngSubmit)="aceptar()">
+    <div class="row formulario">
+      <div class="col-md-6 mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input [(ngModel)]="actor.nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+        <small style="color:rgb(255, 255, 255);" class="invalid" 
+          *ngIf="forma.controls['nombre'].errors?.['required'] &&
+          forma.controls['nombre'].touched">
+          El nombre es requerido
+        </small>
+        <small style="color:rgb(255, 255, 255);"  class="invalid" 
+        *ngIf="forma.controls['nombre'].errors?.['containsSpaces'] &&
+        forma.controls['nombre'].touched">
+        El nombre no puede contener espacios
+      </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input [(ngModel)]="actor.apellido"type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido"> 
+        <small class="invalid" style="color:rgb(255, 255, 255);" 
+          *ngIf="forma.controls['apellido'].errors?.['required']  &&
+          forma.controls['apellido'].touched">
+          El apellido es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="dni" class="form-label">Edad</label>
+        <input [(ngModel)]="actor.edad"type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+        <small class="invalid" style="color:rgb(255, 255, 255);" 
+          *ngIf="forma.controls['edad'].errors?.['required']  &&
+          forma.controls['edad'].touched">
+          La edad es requerida
+        </small>
+        <small class="invalid" style="color:rgb(255, 255, 255);" 
+          *ngIf="forma.controls['edad'].errors?.['min'] || 
+          forma.controls['edad'].errors?.['min'] &&
+          forma.controls['edad'].touched">
+          La edad debe ser de 18 a 99 años
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="sexo" class="form-label">Sexo</label><br>
+        <select [(ngModel)]="actor.sexo" class="form-select" id="sexo" formControlName="sexo">
+          <option style="color:black" value="">Seleccione uno</option>
+          <option style="color:black" value="F">Femenino</option>
+          <option style="color:black" value="M">Masculino</option>
+        </select>
+        <small class="invalid" style="color:rgb(255, 255, 255);" 
+          *ngIf="forma.controls['sexo'].errors?.['required']  &&
+          forma.controls['sexo'].touched">
+          El sexo es requerido
+        </small><br>
+      </div>
+      <div class="col-md-6 mb-3" style="height: 10%;">
+        <label for="sexo" class="form-label">Seleccione un pais</label><br>
+        <div>
+          <app-tabla-paises (PasarPais)="this.agarrarPaisSeleccionado($event)"></app-tabla-paises>
+        </div>
+      </div>
+    </div><br>
+    <div class="botones">
+      <button class="btn"(click)="registrarActor($event)"> Registrar</button><br>
+      <div *ngIf="mostrarOk">
+        <app-actor-listado   [listadoActoresRecibido]="actores"></app-actor-listado>
+       </div>
+      <button class="btn"(click)="MostrarListado()"> {{this.texto}}</button>
+    
+    </div>
+  </form>
+</div>

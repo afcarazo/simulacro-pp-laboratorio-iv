@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Actor } from 'src/app/clases/actor';
 
 @Component({
   selector: 'app-actor-listado',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actor-listado.component.css']
 })
 export class ActorListadoComponent implements OnInit {
-
+  @Input() listadoActoresRecibido?: Actor[];
   constructor() { }
 
   ngOnInit(): void {
