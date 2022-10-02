@@ -53,8 +53,22 @@
           El sexo es requerido
         </small><br>
       </div>
+      <div class="col-md-6 mb-3"  style="width: 400px; display: inline-block;" >
+        <label for="paisNombre" class="form-label" >Pais</label>
+        <div style="display: flex">
+        <input [(ngModel)]="actor.paisNombre"type="text" class="form-control" readonly id="paisNombre"formControlName="paisNombre"> 
+        <img *ngIf="actor.paisNombre" style="margin-left: 1rem;width: 50px; height: 50px; "
+        src="{{ actor.paisFoto }}">
+      </div>
+      <small class="invalid" style="color:rgb(255, 255, 255);" 
+      *ngIf="forma.controls['paisNombre'].errors?.['required']  &&
+      forma.controls['paisNombre'].touched">
+      El pais es requerido
+    </small>
+      </div>
+
       <div class="col-md-6 mb-3" style="height: 10%;">
-        <label for="sexo" class="form-label">Seleccione un pais</label><br>
+        <label class="form-label">Seleccione un pais</label><br>
         <div>
           <app-tabla-paises (PasarPais)="this.agarrarPaisSeleccionado($event)"></app-tabla-paises>
         </div>
@@ -66,7 +80,6 @@
         <app-actor-listado   [listadoActoresRecibido]="actores"></app-actor-listado>
        </div>
       <button class="btn"(click)="MostrarListado()"> {{this.texto}}</button>
-    
     </div>
   </form>
 </div>

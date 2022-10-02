@@ -7,7 +7,7 @@ import { Pelicula } from 'src/app/clases/pelicula';
   styleUrls: ['./pelicula-listado.component.css']
 })
 export class PeliculaListadoComponent implements OnInit {
-
+  @Input() listadoPeliculasRecibido?: Pelicula[];
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-<table style="color:rgb(0, 162, 255);" class="table">
+<table style="color:rgb(0, 162, 255);" class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Apellido</th>
@@ -10,7 +10,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let actor of this.listadoActoresRecibido">
+      
+      <tr style="cursor: pointer" *ngFor="let actor of this.listadoActoresRecibido" (click)="enviarActor(actor)">
         <td>{{actor.apellido}}</td>
         <td>{{actor.nombre}}</td>
         <td>{{actor.sexo}}</td>

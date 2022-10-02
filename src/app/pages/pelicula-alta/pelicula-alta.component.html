@@ -1,1 +1,92 @@
-<p>pelicula-alta works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <form [formGroup]="forma" (ngSubmit)="aceptar()">
+    <div class="row formulario">
+      <div class="col-md-6 mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input [(ngModel)]="pelicula.nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+          formControlName="nombre">
+        <small style="color:rgb(255, 255, 255);" class="invalid" *ngIf="forma.controls['nombre'].errors?.['required'] &&
+          forma.controls['nombre'].touched">
+          El nombre es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="sexo" class="form-label">Tipo</label><br>
+        <select [(ngModel)]="pelicula.tipo" class="form-select" id="tipo" formControlName="tipo">
+          <option style="color:black" value="">Seleccione uno</option>
+          <option style="color:black" value="Terror">Terror</option>
+          <option style="color:black" value="Comedia">Comedia</option>
+          <option style="color:black" value="Amor">Amor</option>
+          <option style="color:black" value="Otros">Otros</option>
+        </select>
+        <small class="invalid" style="color:rgb(255, 255, 255);" *ngIf="forma.controls['tipo'].errors?.['required']  &&
+          forma.controls['tipo'].touched">
+          El tipo es requerido
+        </small><br>
+      </div>
+      <div class="row formulario">
+        <div class="col-md-6 mb-3">
+          <label for="fechaEstreno" class="form-label">Fecha de estreno</label>
+          <input [(ngModel)]="pelicula.fechaDeEstreno" type="text" class="form-control" id="nombre"
+            placeholder="Ingrese nombre" formControlName="nombre">
+          <small style="color:rgb(255, 255, 255);" class="invalid" *ngIf="forma.controls['fechaEstreno'].errors?.['required'] &&
+            forma.controls['fechaEstreno'].touched">
+            La fecha estreno es requerida
+          </small>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="dni" class="form-label">cantidad de publico</label>
+        <input [(ngModel)]="pelicula.cantidadDePublico" type="number" class="form-control" id="cantidadPublico"
+          placeholder="Ingrese cantidad publico" formControlName="cantidadPublico">
+        <small class="invalid" style="color:rgb(255, 255, 255);" *ngIf="forma.controls['cantidadPublico'].errors?.['required']  &&
+          forma.controls['cantidadPublico'].touched">
+          La fecha de estreno es requerida
+        </small>
+      </div>
+      <div style="height: 10%; text-align: center;">
+        <label for="sexo" class="form-label">Seleccione una pelicula</label><br>
+        <div class="container-peliculas" style=" text-align: center;">
+          <div class="row" style=" text-align:center; position: relative;">
+            <div class="col" *ngFor='let pelicula of this.imagenesPeliculas'>
+              <img src="{{pelicula}}" width="80px" height="120px" style="cursor: pointer;"
+                (click)="seleccionarImagen(pelicula)">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3"  style="width: 400px; display: inline-block;" >
+        <label for="portada" class="form-label" >Portada seleccionado</label>
+        <div style="display: flex">
+        <img *ngIf="pelicula.foto" style="margin-left: 1rem;width: 80px; height: 120px;   box-shadow: 0 10px 30px 0 rgba(180, 230, 255, 0.336);"
+        src="{{ pelicula.foto }}">
+      </div>
+      <small class="invalid" style="color:rgb(255, 255, 255);" 
+      *ngIf="forma.controls['portada'].errors?.['required']  &&
+      forma.controls['portada'].touched">
+      La portada es requerida
+    </small>
+      </div>
+      <div style="text-align: center;">
+        <br><label class="form-label">Seleccione un actor</label><br>
+        <app-actor-listado (actorEnviado)="tomarActor($event)" [listadoActoresRecibido]="actores"></app-actor-listado>
+      </div>
+    </div><br>
+    <div class="col-md-6 mb-3"  style="width: 400px; display: inline-block;" >
+      <label for="actorNombre" class="form-label" >Actor seleccionado</label>
+      <div style="display: flex">
+      <input [(ngModel)]="pelicula.actor.nombre"type="text" class="form-control" readonly id="actorNombre"formControlName="actorNombre"> 
+    </div>
+    </div>
+
+    <div class="botones">
+      <button class="btn" (click)="registrarPelicula()"> Registrar</button><br>
+      <div *ngIf="mostrarOk">
+        <app-pelicula-listado (actorEnviado)="agarrarActor($event)" [listadoPeliculasRecibido]="peliculas">
+        </app-pelicula-listado>
+      </div>
+      <button class="btn" (click)="MostrarListado()"> {{this.texto}}</button>
+    </div>
+  </form>
+</div>

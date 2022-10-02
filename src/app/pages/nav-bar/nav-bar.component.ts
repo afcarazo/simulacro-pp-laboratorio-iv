@@ -23,5 +23,9 @@ export class NavBarComponent implements OnInit {
     this.router.navigateByUrl('actor/alta');
    }
    
+  navegarAltaPelicula()
+  {
+    this.router.navigateByUrl('peliculas/alta');
+   }
  
 }

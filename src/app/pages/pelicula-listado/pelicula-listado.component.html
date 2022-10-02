@@ -1,1 +1,22 @@
-<app-tabla-pelicula></app-tabla-pelicula>
+<table style="color:rgb(0, 162, 255);" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Fecha de estreno</th>
+        <th scope="col">Cantidad de publico</th>
+        <th scope="col">Actor</th>
+        <th scope="col">Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pelicula of this.listadoPeliculasRecibido">
+        <td>{{pelicula.nombre}}</td>
+        <td>{{pelicula.tipo}}</td>
+        <td>{{pelicula.fechaDeEstreno}}</td>
+        <td>{{pelicula.cantidadDePublico}}</td>
+        <td>{{ pelicula.actor.nombre }} {{ pelicula.actor.apellido }}</td>
+        <td><img src={{pelicula.foto}} width="35px" height="35px"></td>
+      </tr>
+    </tbody>
+  </table>
