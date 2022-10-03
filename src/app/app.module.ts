@@ -22,6 +22,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { environment } from '../environments/environment';
+import { ActorPeliculaComponent } from './pages/actor-pelicula/actor-pelicula.component';
+import { ListadoActorPeliculasComponent } from './pages/listado-actor-peliculas/listado-actor-peliculas.component';
+import { DetallePaisActorListadoComponent } from './pages/detalle-pais-actor-listado/detalle-pais-actor-listado.component';
+import { DetalleActorComponent } from './pages/detalle-actor/detalle-actor.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { environment } from '../environments/environment';
     DetallePeliculaComponent,
     TablaPaisesComponent,
     NavBarComponent,
+    ActorPeliculaComponent,
+    ListadoActorPeliculasComponent,
+    DetallePaisActorListadoComponent,
+    DetalleActorComponent,
     
   ],
   imports: [

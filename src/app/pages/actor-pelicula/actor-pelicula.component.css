@@ -1,4 +1,4 @@
-
+/*# sourceMappingURL=bootstrap.min.css.map */
 body{
     background-color:rgb(20, 11, 41)
 }
@@ -9,13 +9,7 @@ main
 {
     background-color:rgb(20, 11, 41)
 }
-div.container.py-4
-{
 
-    text-align: left;
-    padding-left:200px ;
-    padding-right: 100px;
-}
 .container-peliculas
 {
     text-align: center;
@@ -91,9 +85,3 @@ button[type="button"]
 font-weight: 100;
 }
 
-div.h-100.p-5.bg-light.border.rounded-3
-{
-height: 198.84px;
-width: 320px;
-
-}

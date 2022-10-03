@@ -54,7 +54,7 @@ export class ActorAltaComponent implements OnInit {
 
   agarrarPaisSeleccionado($event:any)
   {
-    this.actor.pais = $event.name.common;
+    this.actor.pais = $event;
     this.actor.paisFoto = $event.flags.png;
     this.actor.paisNombre = $event.name.common;
   }

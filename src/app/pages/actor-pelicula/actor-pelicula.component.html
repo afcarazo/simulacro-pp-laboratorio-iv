@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<main style="text-align: center;">   
+     <div class="container py-4 contenedor-gral">
+        <div class="p-5 mb-4 rounded-3">
+            <div class="container-fluid py-5">
+        <h1 class="active">Actores</h1><br>
+        <app-actor-listado (actorEnviado)="tomarActor($event)" [listadoActoresRecibido]="actores"></app-actor-listado>
+    </div>
+        </div>
+
+   
+    <div class="row align-items-md-stretch">
+        <div class="col-md-4" >
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Peliculas actor</h2>
+                <app-listado-actor-peliculas [listadoPeliculasRecibido]="listadoFiltradoPeliculas">
+                </app-listado-actor-peliculas>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-5 bg-light border rounded-3" >
+                <h2>Detalle pais</h2>
+                <app-detalle-pais-actor-listado [actorRecibido]="actor"></app-detalle-pais-actor-listado>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="h-100 p-5 bg-light border rounded-3" >
+                <h2>Detalle actor</h2>
+                <app-detalle-actor [actorRecibido]="actor"></app-detalle-actor>
+            </div>
+        </div>
+    
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; Agustina Carazo - 2022
+    </footer>
+
+    </div>
+</main>
